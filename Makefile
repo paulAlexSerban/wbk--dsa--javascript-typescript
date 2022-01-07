@@ -1,2 +1,4 @@
 clean:
-	rm 
+	rm -rfv */*.js
+	rm -rfv */*/*.js
+	rm -rfv */*/*/*.js
