@@ -49,10 +49,10 @@ function add(num1: number, num2: number, showResult: boolean, phrase: string) {
 const number1 = 8; // if we change the value to a string there will be an error
 let number2 : number;
 number2 = 5;
-const printResult = true;
+const printResults = true;
 let phrase: string;
 phrase = 'Result is: ';
-const add_result: number = add(number1, number2, printResult, phrase);
+const add_result: number = add(number1, number2, printResults, phrase);
 
 //=======================================================//
 

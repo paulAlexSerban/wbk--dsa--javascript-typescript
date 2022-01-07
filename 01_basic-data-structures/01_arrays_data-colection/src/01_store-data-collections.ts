@@ -15,7 +15,7 @@
  */
 
 let simpleArray: (string | number | boolean)[];
-simpleArray = ["one", 2, "three", true, false, undefined, null];
+simpleArray = ["one", 2, "three", true, false];
 
 /**
  * Multi-dimensional Array
