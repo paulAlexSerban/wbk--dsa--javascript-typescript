@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "bash compile.bash"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/paulAlexSerban/wbk--algorithms-n-data-structures--typescript#readme",
   "devDependencies": {
-    "lite-server": "^2.6.1",
     "typescript": "^5.0.4"
   }
 }

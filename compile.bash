@@ -1,5 +1,6 @@
 #!/bin/bash
-rm -rfv ./**/dist
+rm -rfv ./*/dist
+rm -rfv ./*/*/dist
 # Find TypeScript files in nested directories, ignoring 'dist' and 'node_modules' directories
 find . -name '*.ts' -not -path '*/dist/*' -not -path '*/node_modules/*' | while read file; do
     # Get the directory of the file
