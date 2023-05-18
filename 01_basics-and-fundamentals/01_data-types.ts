@@ -37,7 +37,7 @@ function boolean_data_types() {
   console.log(falseBooleanValue);
 }
 
-function add(num1: number, num2: number, showResult: boolean, phrase: string) {
+function addNumber(num1: number, num2: number, showResult: boolean, phrase: string) {
   if(showResult) {
     console.log(`${phrase}${num1 + num2}`);
     return num1 + num2;
@@ -52,7 +52,7 @@ number2 = 5;
 const printResults = true;
 let phrase: string;
 phrase = 'Result is: ';
-const add_result: number = add(number1, number2, printResults, phrase);
+const add_result: number = addNumber(number1, number2, printResults, phrase);
 
 //=======================================================//
 
