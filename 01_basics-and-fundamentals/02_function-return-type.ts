@@ -4,6 +4,8 @@
  * you can set the type of the return of the function
  * Eg. `function name(): number {}`
  * 
+ * NOTE: if you set the return type of the function, you must return a value
+ * 
  * The `:void` type - states that the function does not have a return statement
  */
 
