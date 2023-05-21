@@ -33,8 +33,10 @@
 
     let number2: number;
     const number1 = 5;
+
     number2 = 2.8;
     number2 = 5;
+    
     const printResults = true;
     let phrase: string;
     phrase = "Result is: ";

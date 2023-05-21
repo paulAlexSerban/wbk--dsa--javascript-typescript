@@ -24,4 +24,25 @@
         hobbies: ["Sports", "Cooking"],
         role: Role.ADMIN,
     };
+
+    enum OrderStatus {
+        PENDING,
+        PROCESSING,
+        COMPLETE,
+    }
+
+    const order = {
+        status: OrderStatus.PROCESSING,
+    };
+
+    console.log(order.status === OrderStatus.PROCESSING); // true
+
+    /**
+     * Note:
+     * =====
+     * Because enums get transpiled into newer and bigger objects, TypeScript kind of moved away from
+     * using enums and instead uses union types.
+     * 
+     * Enums are not commonly used in modern TypeScript projects.
+     **/ 
 })();
