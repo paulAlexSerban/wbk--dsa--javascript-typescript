@@ -1,12 +1,12 @@
 /**
- * NOTA BENE:
- * For a complete description of the concepts practiced in this ticket check the Java / BasicJava / Basics-and-Fundamentals
- */
-
-/**
- * Integer/Number
- * it is whole number
- * it has a MIN_VALUE and a MAX_VALUE to store numbers
+ * Integer / Number
+ * - it is a primitive type
+ * - it is a number
+ * - it is whole number
+ * - it has a MIN_VALUE and a MAX_VALUE to store numbers
+ * - it is a 64-bit floating point number
+ * - it is a double-precision 64-bit binary format IEEE 754 value
+ * - it is a binary floating point
  */
 
 (() => {

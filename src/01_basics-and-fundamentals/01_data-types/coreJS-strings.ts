@@ -1,5 +1,9 @@
 /**
  * String
+ * - a primitive type
+ * - it is a sequence of characters
+ * - it is a string of characters
+ * - it is a string of text
  * - JavaScript distinguishes between String objects and primitive string values.
  * - a datatype which is not a primitive type it is a Class
  * - a String is a sequence of characters

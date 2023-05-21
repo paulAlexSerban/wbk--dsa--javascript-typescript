@@ -5,7 +5,12 @@
  * but need not be the same.
  * 
  * A Tuple is a special construct TypeScript offers to express an array with a fixed number of elements whose types are known,
+ * 
+ * - it is a fixed length array
+ * - are marked in the object type with [number, string]
+ * - tuples are useful an exact amount of values in an array
  */
+
 
 (() => {
   const person: {
