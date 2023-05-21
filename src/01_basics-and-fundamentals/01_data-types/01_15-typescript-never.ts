@@ -14,6 +14,8 @@
     throw new Error(errorMsg);
   }
 
+  console.log(throwError('This is an error'));
+
   /**
    * The never type can also be used to represent exhaustive checks in TypeScript, 
    * such as in a switch statement for a union type:
@@ -39,4 +41,6 @@
         return exhaustiveCheck;
     }
   }
+
+  console.log(getFruitInfo('apple'));
 })()

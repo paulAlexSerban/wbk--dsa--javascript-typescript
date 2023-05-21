@@ -13,6 +13,8 @@
         age: 30,
     };
 
+    console.log(person);
+
     type PersonType = {
         name: string;
         age: number;
@@ -23,12 +25,21 @@
         age: 30,
     };
 
+    console.log(person2);
+
     type Point = {
         x: number;
         y: number;
         // optional properties use `?` syntax
         z?: number;
     };
+
+    const point: Point = {
+        x: 10,
+        y: 20,
+    };
+
+    console.log(point);
 
     type User = {
         readonly id: string;
@@ -41,6 +52,8 @@
         username: "john",
         email: "test@gmail.com"
     }
+
+    console.log(newUser);
 
     /**
      * Nested Type Annotations (Object Types)
@@ -63,6 +76,8 @@
         },
     };
 
+    console.log(product);
+
     /**
      * Intersection Types
      * ==================
@@ -84,6 +99,7 @@
         radius: 10,
         color: "red"
     }
+    console.log(circle);
 
     type Ball = CircleColorful & {
         isBouncy: boolean;
@@ -94,6 +110,7 @@
         color: "red",
         isBouncy: true
     }
+    console.log(ball);
 
     /****************************/
     // Write the Movie type alias to make the following two variables properly typed

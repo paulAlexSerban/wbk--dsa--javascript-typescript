@@ -11,4 +11,4 @@ function functionName(str: String = "TypeScript") {
 }
 
 functionName();
-functionName("super TypeScript");
+functionName("super JavaScript, my name is TypeScript");

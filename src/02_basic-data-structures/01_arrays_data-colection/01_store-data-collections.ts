@@ -89,14 +89,16 @@ type Combinable = number | string;
 type ConversionDescriptor = 'as-number' | 'as-text';
 
 function combine_literal(
-  num1: Combinable, 
+  num1: Combinable,
   num2: Combinable,
   resultConversion: ConversionDescriptor /* 1 */) {
-  let result: any;
+
   if (typeof num1 === "number" && typeof num2 === "number" || resultConversion === "as-number") {
-    return result = +num1 + +num2;
-  } else if(typeof num1 === "string" && typeof num2 === "string" || resultConversion === "as-text") {
-    return result = num1.toString() + num2.toString();
+    let result: any = +num1 + +num2;
+    return result;
+  } else if (typeof num1 === "string" && typeof num2 === "string" || resultConversion === "as-text") {
+    let result: any = num1.toString() + num2.toString()
+    return result;
   }
 
   // if(resultConversion === 'as-number') {

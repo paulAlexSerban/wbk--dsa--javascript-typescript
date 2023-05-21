@@ -28,8 +28,11 @@
 
   // Strict (prevent mixing types)
   favoriteActivities = ["Sports"]
+  // favoriteActivities = ["Sports", 1] // !!! ERROR !!!
+  console.log(favoriteActivities);
 
   // Flexible (mixing types)
   let flexibleFavACtivities: any[];
   flexibleFavACtivities = ["Sports", 1, true, {}];
+  console.log(flexibleFavACtivities);
 })();

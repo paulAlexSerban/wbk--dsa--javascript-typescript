@@ -41,4 +41,5 @@
     let phrase: string;
     phrase = "Result is: ";
     const add_result: number = add(number1, number2, printResults, phrase);
+    console.log(add_result);
 })();

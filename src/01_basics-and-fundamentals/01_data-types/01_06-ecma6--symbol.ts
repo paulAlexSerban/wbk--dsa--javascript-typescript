@@ -13,6 +13,8 @@
   let sym3 = Symbol("key");
 
   console.log(sym2 === sym3); // Outputs "false"
+  console.log(typeof sym2); // Outputs "symbol"
+  console.log(typeof sym1); // Outputs "symbol"
 
   /**
    * In this example, even though sym2 and sym3 were given the same description ("key"), 

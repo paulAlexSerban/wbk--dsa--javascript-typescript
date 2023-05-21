@@ -29,7 +29,7 @@
     // union types with arrays
     // gives you the flexibility to express an array where the types of values are unioned
     const stuff: (number | string)[] = [1, "2", 3, "4"];
-
+    console.log(stuff);
     /*************************/
 
     // Write a function called greet that accepts a single string OR an array of strings

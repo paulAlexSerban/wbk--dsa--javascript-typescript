@@ -33,11 +33,6 @@
 
   /********************/
 
-  interface Car {
-    name: string,
-    year: Date,
-    broken: boolean,
-  }
   interface Reportable {
     summary(): string
   }

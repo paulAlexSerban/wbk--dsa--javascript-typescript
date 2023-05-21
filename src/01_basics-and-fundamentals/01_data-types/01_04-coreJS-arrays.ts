@@ -27,10 +27,12 @@
     return total;
   }
 
+  console.log(getTotal([{ name: 'A', price: 10 }, { name: 'B', price: 20 }]));
+
   /**********************/
   // Multiple type arrays
   const importantDates: (Date | string)[] = [new Date(), '2030-10-10'];
-
+  console.log(importantDates);
   /**********************/
 
   // union types with arrays
@@ -59,9 +61,10 @@
    */
   type Stuff = number | string;
   const stuff: Stuff[] = [1, "2", 3, "4"];
-
+  console.log(stuff);
   type ExtraStuff = number[] | string[];
   const extraStuff: ExtraStuff = [1, 2, 3, 4];
-
+  console.log(extraStuff);
   const extendedStuff: Stuff | ExtraStuff = [1, 2, 3, 4];
+  console.log(extendedStuff);
 })()

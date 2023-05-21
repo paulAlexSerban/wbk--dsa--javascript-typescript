@@ -25,6 +25,8 @@
         role: Role.ADMIN,
     };
 
+    console.log(person.role); // 0
+
     enum OrderStatus {
         PENDING,
         PROCESSING,
