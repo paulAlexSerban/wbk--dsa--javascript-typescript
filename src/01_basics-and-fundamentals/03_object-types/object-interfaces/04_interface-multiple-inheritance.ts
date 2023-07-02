@@ -15,6 +15,7 @@
     email: string;
   }
 
+  // inheritance with interfaces
   interface Engineer extends Person, Employee {
     role: string;
     level: number;
