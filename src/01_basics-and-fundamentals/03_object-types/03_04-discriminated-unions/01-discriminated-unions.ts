@@ -2,6 +2,7 @@
  * Discriminated Unions
  * --------------------
  * Discriminated unions are a pattern that we can use to make type guards easier to implement.
+ * a common pattern in TypeScript, which involves creating a literal property that is common across multiple types
  */
 
 (() => {
