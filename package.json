@@ -1,23 +1,23 @@
 {
-  "name": "wbk--algorithms-n-data-structures--typescript",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "export ENV=production && npx tsc",
-    "watch": "npx tsc --watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/paulAlexSerban/wbk--algorithms-n-data-structures--typescript.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/paulAlexSerban/wbk--algorithms-n-data-structures--typescript/issues"
-  },
-  "homepage": "https://github.com/paulAlexSerban/wbk--algorithms-n-data-structures--typescript#readme",
-  "devDependencies": {
-    "typescript": "^5.0.4"
-  }
+    "name": "wbk--algorithms-n-data-structures--typescript",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "export ENV=production && npx tsc",
+        "watch": "npx tsc --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/paulAlexSerban/wbk--algorithms-n-data-structures--typescript.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/paulAlexSerban/wbk--algorithms-n-data-structures--typescript/issues"
+    },
+    "homepage": "https://github.com/paulAlexSerban/wbk--algorithms-n-data-structures--typescript#readme",
+    "devDependencies": {
+        "typescript": "^5.0.4"
+    }
 }
