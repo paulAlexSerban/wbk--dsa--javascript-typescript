@@ -13,18 +13,21 @@ Workbook repository for algorithms and data structures implemented in TypeScript
 
 ## 📘 Resources
 
--   [Visualizing data structures and algorithms through animation](https://visualgo.net/en)
+-   Visualizing data structures and algorithms through animation: [VisuAlgo](https://visualgo.net/en)
+-   [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html)
+-   [TypeScript Deep Dive](https://basarat.gitbook.io/typescript/)
+-   [Totally TypeScript](https://www.totaltypescript.com/tutorials/beginners-typescript)
 
 ## 📬 Contact
+
 For inquiries, issues, or further information, feel free to contact me:
 
 GitHub: @paulAlexSerban
 Email: paul.alex.serban@gmail.com
 
-
-
 ## Useful commands
-- `npm install` - install all dependencies
-- `npm run watch` - watch for changes and compile
-- `npm run build` - compile all changes
-- `bash compile.bash` - custom script to compile all changes
+
+-   `npm install` - install all dependencies
+-   `npm run watch` - watch for changes and compile
+-   `npm run build` - compile all changes
+-   `bash compile.bash` - custom script to compile all changes
