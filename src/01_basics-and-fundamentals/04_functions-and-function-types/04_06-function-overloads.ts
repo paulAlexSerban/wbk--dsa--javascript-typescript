@@ -18,7 +18,7 @@
         return a + b;
     }
 
-    const result = add("Max", " Schwarz");
+    const result = add("Paul", " Serban");
     // now TS knows that result is a string
     result.split(" ");
 })();

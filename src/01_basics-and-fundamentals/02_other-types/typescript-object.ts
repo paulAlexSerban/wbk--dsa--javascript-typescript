@@ -12,7 +12,7 @@
     // object type
     player: string;
     fightingStyle: string;
-    human: boolean;
+    human?: boolean;
   } = {
     // the object itself
     player: "Hwoarang",

@@ -7,6 +7,50 @@
  * - Arrays are mutable, meaning that we can change the value of its elements.
  */
 
+(()=>{
+  interface User {
+    id: number;
+    firstName: string;
+    lastName: string;
+    role: "admin" | "user" | "super-admin";
+    posts: Post[];
+  }
+  
+
+  interface Post {
+    id: number;
+    title: string;
+  }
+
+  
+  const defaultUser: User = {
+    id: 1,
+    firstName: "Matt",
+    lastName: "Pocock",
+    role: "admin",
+    posts: [
+      {
+        id: 1,
+        title: "How I eat so much cheese",
+      },
+      {
+        id: 2,
+        title: "Why I don't eat more vegetables",
+      },
+    ],
+  };
+
+  const logUser = (user: User) => {
+    console.log(
+      `id: ${user.id}, firstName: ${user.firstName}, lastName: ${user.lastName}, role: ${user.role}, posts: ${user.posts}`
+    );
+  }
+
+  logUser(defaultUser);
+
+  
+})();
+
 (() => {
   const activeUsers: string[] = ['Max', 'Anna'];
   console.log(activeUsers);

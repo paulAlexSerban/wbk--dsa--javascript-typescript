@@ -124,3 +124,19 @@
     useVehicle(v3);
     useVehicle(v4);
 })();
+
+
+(() => {
+    type AmountObj = Record<string, number>;
+    type Amount = {amount: number};
+
+    const cierceAmount = (amount: AmountObj | Amount) => {
+        if ("amount" in amount) {
+            console.log(amount.amount);
+        } else {
+            console.log(amount);
+        }
+    }
+
+    cierceAmount({amount: 10});
+})()

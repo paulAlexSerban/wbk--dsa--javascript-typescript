@@ -1,14 +1,14 @@
 /**
  * TypeScript Interfaces
  * ======================
- * An interface is a syntactical contract that an entity should conform to. In other words, an interface 
+ * An interface is a syntactical contract that an entity should conform to. In other words, an interface
  * defines the syntax that any entity must adhere to.
- * 
- * TypeScript interfaces define contracts in your code and provide explicit names for type checking. 
+ *
+ * TypeScript interfaces define contracts in your code and provide explicit names for type checking.
  * Interfaces define properties, methods, and events, which are the members of the interface.
- * 
- * Interfaces contain only the declaration of the members. It is the responsibility of the deriving class 
- * to define the members. It often helps in providing a standard structure that the deriving classes 
+ *
+ * Interfaces contain only the declaration of the members. It is the responsibility of the deriving class
+ * to define the members. It often helps in providing a standard structure that the deriving classes
  * would follow.
  */
 
@@ -65,18 +65,44 @@
 })();
 
 (() => {
-  interface Greatable {
-    greet(): void;
-  }
-
-  class Person implements Greatable {
-    constructor(private name: string) {}
-
-    greet(): void {
-      console.log(`Hello ${this.name}!`);
+    interface Greatable {
+        greet(): void;
     }
-  }
 
-  const person = new Person("John");
-  person.greet();
-})()
+    class Person implements Greatable {
+        constructor(private name: string) {}
+
+        greet(): void {
+            console.log(`Hello ${this.name}!`);
+        }
+    }
+
+    const person = new Person("John");
+    person.greet();
+})();
+
+(() => {
+    interface User {
+        id: number;
+        firstName: string;
+        lastName: string;
+        isAdmin: boolean;
+    }
+
+    /**
+     * How do we ensure that defaultUser is of type User
+     * at THIS LINE - not further down in the code?
+     */
+    const defaultUser = {
+        id: 0,
+        firstName: "John",
+        lastName: "Doe",
+        isAdmin: false,
+    };
+
+    const getUserId = (user: User) => {
+        return user.id;
+    };
+
+    getUserId(defaultUser);
+})();

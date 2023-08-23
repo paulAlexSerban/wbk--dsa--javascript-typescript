@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
+    "build": "export ENV=production && npx tsc",
     "watch": "npx tsc --watch"
   },
   "repository": {
