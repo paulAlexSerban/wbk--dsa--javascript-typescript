@@ -14,6 +14,6 @@
     const stringPrimitive: string = "String Primitive";
     console.log(stringPrimitive);
 
-    const firstStringObject: String = new String("This is a string object");
+    const firstStringObject: String = String("This is a string object");
     console.log(firstStringObject);
 })();

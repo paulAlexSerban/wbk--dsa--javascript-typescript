@@ -7,3 +7,5 @@
 // undefined is a global variable
 // undefined is a property of the global object
 // undefined is a primitive value
+
+const undefinedPrimitive: undefined = undefined;
