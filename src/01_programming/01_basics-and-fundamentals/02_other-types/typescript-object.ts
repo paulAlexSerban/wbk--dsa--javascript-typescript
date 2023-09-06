@@ -201,3 +201,38 @@
     console.log(getProfit(dune));
     console.log(getProfit(cats));
 })();
+
+(() => {
+    type Person = {
+        name: string;
+        DOB: Date;
+    };
+
+    // Employee is a subtype of Person
+    type Employee = Person & {
+        hireDate: Date;
+        id: number;
+    };
+
+    const person: Person = {
+        name: 'Buzz Lightyear',
+        DOB: new Date('1955-02-02'),
+    };
+
+    console.log(person);
+
+    // Astronaut is a subtype of Employee
+    type Astronaut = Employee & {
+        launchDate: Date;
+    };
+
+    const employee: Astronaut = {
+        name: 'Buzz Lightyear',
+        DOB: new Date('1955-02-02'),
+        launchDate: new Date('1995-02-02'),
+        hireDate: new Date('1995-02-02'),
+        id: 1,
+    };
+
+    console.log(employee);
+})();
