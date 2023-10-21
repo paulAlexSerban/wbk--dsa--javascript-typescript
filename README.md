@@ -1,4 +1,4 @@
-# TypeScript - Algorithms and Data Structures
+# TypeScript Data Structures and Algorithms Workbook
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/paulAlexSerban/wbk--algorithms-n-data-structures--typescript) ![GitHub issues](https://img.shields.io/github/issues-raw/paulAlexSerban/wbk--algorithms-n-data-structures--typescript)![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/paulAlexSerban/wbk--algorithms-n-data-structures--typescript)
 
@@ -27,7 +27,7 @@ Email: paul.alex.serban@gmail.com
 
 ## Useful commands
 
--   `npm install` - install all dependencies
--   `npm run watch` - watch for changes and compile
--   `npm run build` - compile all changes
--   `bash compile.bash` - custom script to compile all changes
+-   `yarn install` - install all dependencies
+-   `yarn run watch` - watch for changes and compile
+-   `yarn run build` - compile all changes
+-   `bash scripts/compile.bash` - custom script to compile all changes
