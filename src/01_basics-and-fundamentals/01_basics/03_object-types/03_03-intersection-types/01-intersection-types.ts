@@ -127,6 +127,7 @@
 
 
 (() => {
+    // Record<K, T> - to be used with object collections
     type AmountObj = Record<string, number>;
     type Amount = {amount: number};
 
