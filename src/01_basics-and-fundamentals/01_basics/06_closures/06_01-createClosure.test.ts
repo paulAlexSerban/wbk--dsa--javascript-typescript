@@ -26,13 +26,13 @@ describe('Memory Leak Detection', () => {
 
         // Allow for some memory usage growth that's not a leak, e.g., due to V8 internals
         const allowedGrowth = 1024 * 1024 * 10; // 10MB
-        console.log({
-            usedMemoryBefore,
-            usedMemoryAfter,
-            allowedGrowth,
-        })
+        // console.log({
+        //     usedMemoryBefore,
+        //     usedMemoryAfter,
+        //     allowedGrowth,
+        // })
         const memoryGrowth = usedMemoryAfter - usedMemoryBefore;
-        console.log(`Memory growth in Kb: ${memoryGrowth / 1024}Kb`);
+        // console.log(`Memory growth in Kb: ${memoryGrowth / 1024}Kb`);
         expect(memoryGrowth).toBeLessThan(allowedGrowth);
     });
 });
