@@ -13,7 +13,7 @@
     const { log } = console;
     class Player {
         // static properties and methods are accessible without instantiating the class
-        static description = "This class represents a player in a game";
+        static description = 'This class represents a player in a game';
 
         // annotations are not required, but they are recommended
         readonly firstName: string;
@@ -35,16 +35,16 @@
         }
 
         taunt() {
-            log("You are weak, I am strong!", this);
+            log('You are weak, I am strong!', this);
         }
 
         static randomPlayer() {
-            const firstNames = ["John", "Jane", "Jack", "Jill"];
-            const lastNames = ["Doe", "Smith", "Jones", "Johnson"];
+            const firstNames = ['John', 'Jane', 'Jack', 'Jill'];
+            const lastNames = ['Doe', 'Smith', 'Jones', 'Johnson'];
             const ages = [18, 20, 22, 24, 26, 28, 30];
             const heights = [1.6, 1.7, 1.8, 1.9, 2.0];
             const weights = [60, 70, 80, 90, 100];
-            this.description = "This class represents a player in a game";
+            this.description = 'This class represents a player in a game';
             const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
             const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
             const age = ages[Math.floor(Math.random() * ages.length)];
@@ -59,7 +59,7 @@
 
         set score(s: number) {
             if (s < 0) {
-                throw new Error("Score cannot be negative");
+                throw new Error('Score cannot be negative');
             }
             this._score = s;
         }
@@ -78,7 +78,7 @@
 
         set lives(l: number) {
             if (l < 0) {
-                throw new Error("Lives cannot be negative");
+                throw new Error('Lives cannot be negative');
             }
             this.#numLives = l;
         }
@@ -92,10 +92,10 @@
         }
     }
 
-    const player = new Player("John", "Doe", 30, 1.8, 80);
+    const player = new Player('John', 'Doe', 30, 1.8, 80);
     player.taunt();
 
-    const player2 = new Player("Jane", "Doe", 25, 1.6, 60);
+    const player2 = new Player('Jane', 'Doe', 25, 1.6, 60);
     player2.taunt();
     // player2.#score = 10;
     log(Player.description);
@@ -118,12 +118,12 @@
         isAdmin = true;
 
         taunt() {
-            log("You are weak, I am stronger!, I am ADMIN", this);
+            log('You are weak, I am stronger!, I am ADMIN', this);
             super.taunt();
         }
     }
 
-    const adminPlayer = new AdminPlayer("Jack", "Doe", 30, 1.8, 80, ["fly", "super strength"]);
+    const adminPlayer = new AdminPlayer('Jack', 'Doe', 30, 1.8, 80, ['fly', 'super strength']);
     adminPlayer.taunt();
 
     class SuperPlayer extends Player {
@@ -142,7 +142,7 @@
         isAdmin = true;
 
         taunt() {
-            log("You are weak, I am stronger!, I am SUPER", this);
+            log('You are weak, I am stronger!, I am SUPER', this);
             super.taunt();
         }
 
@@ -152,6 +152,16 @@
         }
     }
 
-    const superPlayer = new SuperPlayer("Jill", "Doe", 30, 1.8, 80, ["fly", "super strength"]);
+    const superPlayer = new SuperPlayer('Jill', 'Doe', 30, 1.8, 80, ['fly', 'super strength']);
     superPlayer.taunt();
+})();
+
+(() => {
+    const greetingType = 'helloworld';
+    class Greetings {
+        static [greetingType]() {
+            return 'Hello, World';
+        }
+    }
+    console.log(Greetings[greetingType]());
 })();
