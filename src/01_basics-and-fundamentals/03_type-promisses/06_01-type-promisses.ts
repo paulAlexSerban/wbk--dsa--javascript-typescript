@@ -1,5 +1,5 @@
 (()=>{
-  interface LukeSkywalker {
+  interface ILukeSkywalker {
     name: string;
     height: string;
     mass: string;
@@ -10,7 +10,7 @@
     gender: string;
   }
   
-  const fetchLukeSkywalker = async (): Promise<LukeSkywalker> => {
+  const fetchLukeSkywalker = async (): Promise<ILukeSkywalker> => {
     const data = await fetch("https://swapi.dev/api/people/1").then((res) => {
       return res.json();
     });

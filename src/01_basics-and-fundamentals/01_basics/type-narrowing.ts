@@ -98,18 +98,18 @@
     makeSound(cat);
     makeSound(dog);
 
-    interface Movie {
+    interface IMovie {
         title: string;
         duration: number;
     }
 
-    interface Show {
+    interface IShow {
         title: string;
         episodes: number;
         episodeDuration: number;
     }
 
-    type Content = Movie | Show;
+    type Content = IMovie | IShow;
 
     const printContentInfo = (content: Content) => {
         if ("duration" in content) {
@@ -121,12 +121,12 @@
         }
     };
 
-    const movie: Movie = {
+    const movie: IMovie = {
         title: "The Godfather",
         duration: 180,
     };
 
-    const show: Show = {
+    const show: IShow = {
         title: "The Office",
         episodes: 201,
         episodeDuration: 22,

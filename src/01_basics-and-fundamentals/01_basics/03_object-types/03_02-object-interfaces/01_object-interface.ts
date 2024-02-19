@@ -13,19 +13,19 @@
  */
 
 (() => {
-    interface Todo {
+    interface ITodo {
         id: number;
         title: string;
         completed: boolean;
     }
 
-    const todo: Todo = {
+    const todo: ITodo = {
         id: 1,
         title: "delectus aut autem",
         completed: false,
     };
 
-    const logObject = (obj: Todo) => {
+    const logObject = (obj: ITodo) => {
         console.log(`id: ${obj.id}, title: ${obj.title}, completed: ${obj.completed}`);
     };
 
@@ -33,7 +33,7 @@
 })();
 
 (() => {
-    interface Person {
+    interface IPerson {
         // readonly  cannot be changed after initialization
         readonly firstName: string;
         lastName: string;
@@ -43,7 +43,7 @@
         getFullName(): string;
     }
 
-    const person: Person = {
+    const person: IPerson = {
         firstName: "John",
         lastName: "Doe",
         age: 30,
@@ -53,7 +53,7 @@
         },
     };
 
-    const logObject = (obj: Person) => {
+    const logObject = (obj: IPerson) => {
         console.log(
             `firstName: ${obj.firstName}, lastName: ${obj.lastName}, age: ${obj.age}, isAlive: ${
                 obj.isAlive
@@ -65,11 +65,11 @@
 })();
 
 (() => {
-    interface Greatable {
+    interface IGreatable {
         greet(): void;
     }
 
-    class Person implements Greatable {
+    class Person implements IGreatable {
         constructor(private name: string) {}
 
         greet(): void {
@@ -82,7 +82,7 @@
 })();
 
 (() => {
-    interface User {
+    interface IUser {
         id: number;
         firstName: string;
         lastName: string;
@@ -100,7 +100,7 @@
         isAdmin: false,
     };
 
-    const getUserId = (user: User) => {
+    const getUserId = (user: IUser) => {
         return user.id;
     };
 

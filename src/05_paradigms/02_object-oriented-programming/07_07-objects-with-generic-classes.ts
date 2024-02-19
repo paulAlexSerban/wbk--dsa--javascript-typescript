@@ -1,12 +1,12 @@
 (() => {
-interface Video {
+interface IVideo {
     title: string;
     description: string;
     url: string;
     data: string;
 }
 
-interface Song {
+interface ISong {
     title: string;
     description: string;
     url: string;
@@ -29,7 +29,7 @@ class Playlist<T> {
     }
 }
 
-const playlist = new Playlist<Video>("My Playlist", [
+const playlist = new Playlist<IVideo>("My Playlist", [
     {
         title: "TypeScript",
         description: "Learn TypeScript",
@@ -54,7 +54,7 @@ console.log(playlist.playlistVideos)
 playlist.changePlaylistName("My New Playlist")
 console.log(playlist.playlistName)
 
-const playlist2 = new Playlist<Song>("My Playlist", [
+const playlist2 = new Playlist<ISong>("My Playlist", [
     {
         title: "TypeScript",
         description: "Learn TypeScript",

@@ -1,12 +1,12 @@
 (() => {
 
-  interface ValidatorConfig {
+  interface IValidatorConfig {
     [property: string]: {
       [validatableProp: string]: string[]; // ['required', 'positive']
     };
   }
   
-  const registeredValidators: ValidatorConfig = {};
+  const registeredValidators: IValidatorConfig = {};
   
   function Required(target: any, propName: string) {
     registeredValidators[target.constructor.name] = {

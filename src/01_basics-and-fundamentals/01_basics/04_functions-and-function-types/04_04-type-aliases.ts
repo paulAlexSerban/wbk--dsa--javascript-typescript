@@ -9,10 +9,10 @@
 
 (() => {
 
-  type Combinable = number | string;
-  type ConversionDescriptor = "as-number" | "as-text";
+  type TCombinable = number | string;
+  type TConversionDescriptor = "as-number" | "as-text";
 
-  function combine(input1: Combinable, input2: Combinable, resultConversion: ConversionDescriptor) {
+  function combine(input1: TCombinable, input2: TCombinable, resultConversion: TConversionDescriptor) {
     let result: number | string;
     if (typeof input1 === "number" && typeof input2 === "number") {
       result = input1 + input2;

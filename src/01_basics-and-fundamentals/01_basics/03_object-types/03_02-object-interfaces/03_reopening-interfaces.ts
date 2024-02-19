@@ -6,7 +6,7 @@
  */
 
 (() => {
-  interface Person {
+  interface IPerson {
     firstName: string;
     lastName: string;
   }
@@ -18,11 +18,11 @@
 
   // console.log(person);
 
-  interface Person {
+  interface IPerson {
     middleName: string;
   }
 
-  const person2: Person = {
+  const person2: IPerson = {
     firstName: "John",
     middleName: "Middle",
     lastName: "Doe",

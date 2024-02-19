@@ -5,23 +5,23 @@
  */
 
 (() => {
-  interface Person {
+  interface IPerson {
     name: string;
     age: number;
   }
 
-  interface Employee {
+  interface IEmployee {
     id: number;
     email: string;
   }
 
   // inheritance with interfaces
-  interface Engineer extends Person, Employee {
+  interface IEngineer extends IPerson, IEmployee {
     role: string;
     level: number;
     languages: string[];
   }
-  const piere: Engineer = {
+  const piere: IEngineer = {
     name: "Piere",
     age: 30,
     id: 1,

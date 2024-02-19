@@ -1,13 +1,13 @@
 (() => {
-    interface Colorful {
+    interface IColorful {
         color: string;
     }
 
-    interface Printable {
+    interface IPrintable {
         print(): void;
     }
 
-    class Bike implements Colorful {
+    class Bike implements IColorful {
         // color: string
         constructor(public color: string) {
             this.color = color;
@@ -17,7 +17,7 @@
     const redBike = new Bike("red");
     console.log(redBike.color);
 
-    class Car implements Colorful, Printable {
+    class Car implements IColorful, IPrintable {
         // color: string
         constructor(public brand: string, public color: string) {
             this.color = color;

@@ -8,22 +8,22 @@
  */
 
 (()=>{
-  interface User {
+  interface IUser {
     id: number;
     firstName: string;
     lastName: string;
     role: "admin" | "user" | "super-admin";
-    posts: Post[];
+    posts: IPost[];
   }
   
 
-  interface Post {
+  interface IPost {
     id: number;
     title: string;
   }
 
   
-  const defaultUser: User = {
+  const defaultUser: IUser = {
     id: 1,
     firstName: "Matt",
     lastName: "Pocock",
@@ -40,7 +40,7 @@
     ],
   };
 
-  const logUser = (user: User) => {
+  const logUser = (user: IUser) => {
     console.log(
       `id: ${user.id}, firstName: ${user.firstName}, lastName: ${user.lastName}, role: ${user.role}, posts: ${user.posts}`
     );

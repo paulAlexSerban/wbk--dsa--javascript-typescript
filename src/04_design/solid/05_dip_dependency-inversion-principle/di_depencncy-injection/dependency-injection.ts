@@ -1,8 +1,8 @@
-interface GameLoaderType {
+interface IGameLoader {
   load(): void;
 }
 
-export class GameLoader implements GameLoaderType {
+export class GameLoader implements IGameLoader {
   private input: string;
 
   constructor(input: string) {
@@ -13,7 +13,7 @@ export class GameLoader implements GameLoaderType {
     console.log(`Loading game ${this.input}`);
   }
 }
-export class NextGenGameLoader implements GameLoaderType{
+export class NextGenGameLoader implements IGameLoader{
   private input: string;
 
   constructor(input: string) {
@@ -26,8 +26,8 @@ export class NextGenGameLoader implements GameLoaderType{
 }
 
 export class PlaystationGame {
-  private gameLoader: GameLoaderType;
-  constructor(gameLoader: GameLoaderType) {
+  private gameLoader: IGameLoader;
+  constructor(gameLoader: IGameLoader) {
     this.gameLoader = gameLoader;
   }
 
