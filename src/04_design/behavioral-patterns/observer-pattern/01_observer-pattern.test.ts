@@ -1,10 +1,10 @@
 // SubjectObserver.test.js
-import { Subject, Observer, Observer2, type SubjectInt, type ObserverInt } from './01_observer-pattern'; // Update the path to where your classes are defined
+import { Subject, Observer, Observer2, type ISubject, type IObserver } from './01_observer-pattern'; // Update the path to where your classes are defined
 
 describe('Observer Pattern Implementation', () => {
-    let subject: SubjectInt;
-    let observer1: ObserverInt;
-    let observer2: ObserverInt;
+    let subject: ISubject;
+    let observer1: IObserver;
+    let observer2: IObserver;
 
     beforeEach(() => {
         subject = new Subject();

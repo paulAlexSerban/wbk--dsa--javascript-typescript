@@ -1,27 +1,27 @@
-export interface ObserverInt {
+export interface IObserver {
     update(): void;
 }
 
-export interface SubjectInt {
-    subscribe(observer: ObserverInt): void;
-    unsubscribe(observer: ObserverInt): void;
+export interface ISubject {
+    subscribe(observer: IObserver): void;
+    unsubscribe(observer: IObserver): void;
     fire(): void;
 }
 
-export class Subject implements SubjectInt {
-    private observers: ObserverInt[] = [];
+export class Subject implements ISubject {
+    private observers: IObserver[] = [];
 
     constructor() {
         this.observers = [];
     }
 
-    public subscribe(observer: ObserverInt): void {
+    public subscribe(observer: IObserver): void {
         // Add observer to the list
         // I want to receive updates from this observer
         this.observers.push(observer);
     }
 
-    public unsubscribe(observer: ObserverInt): void {
+    public unsubscribe(observer: IObserver): void {
         // Remove observer from the list
         // I do not want to receive updates from this observer anymore
         this.observers = this.observers.filter((obs) => obs !== observer);
@@ -34,13 +34,13 @@ export class Subject implements SubjectInt {
 
 const subject = new Subject();
 
-export class Observer implements ObserverInt {
+export class Observer implements IObserver {
     public update(): void {
         console.log('Observer has been updated');
     }
 }
 
-export class Observer2 implements ObserverInt {
+export class Observer2 implements IObserver {
     public update(): void {
         console.log('Observer2 has been updated');
     }
