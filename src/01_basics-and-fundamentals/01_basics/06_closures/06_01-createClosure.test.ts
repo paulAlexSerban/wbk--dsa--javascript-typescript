@@ -11,7 +11,7 @@ describe('Memory Leak Detection', () => {
         if (typeof global.gc === 'function') {
             global.gc(); // Force garbage collection
         } else {
-            console.warn('Garbage collection is not exposed. Start Node.js with --expose-gc flag.');
+            console.log('Garbage collection is not exposed. Start Node.js with --expose-gc flag.');
         }
         const usedMemoryBefore = process.memoryUsage().heapUsed;
 

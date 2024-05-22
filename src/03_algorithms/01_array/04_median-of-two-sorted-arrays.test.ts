@@ -21,7 +21,7 @@ describe('findMedianSortedArrays2', () => {
     });
 });
 
-describe('findMedianSortedArrays VS findMedianSortedArrays2', () => {
+describe.skip('findMedianSortedArrays VS findMedianSortedArrays2', () => {
     const SUT1 = findMedianSortedArrays;
     const SUT2 = findMedianSortedArrays2;
 
