@@ -1,4 +1,4 @@
-import { findMedianSortedArrays, findMedianSortedArrays2 } from './04_median-of-two-sorted-arrays';
+import { findMedianSortedArrays, findMedianSortedArrays_FASTEST } from './04_median-of-two-sorted-arrays';
 
 describe('findMedianSortedArrays', () => {
     const SUT = findMedianSortedArrays;
@@ -11,8 +11,8 @@ describe('findMedianSortedArrays', () => {
 
 });
 
-describe('findMedianSortedArrays2', () => {
-    const SUT = findMedianSortedArrays2;
+describe('findMedianSortedArrays_FASTEST', () => {
+    const SUT = findMedianSortedArrays_FASTEST;
 
     test('should return the median of the two sorted arrays', () => {
         const expected = 2;
@@ -21,9 +21,9 @@ describe('findMedianSortedArrays2', () => {
     });
 });
 
-describe.skip('findMedianSortedArrays VS findMedianSortedArrays2', () => {
+describe.skip('findMedianSortedArrays VS findMedianSortedArrays_FASTEST', () => {
     const SUT1 = findMedianSortedArrays;
-    const SUT2 = findMedianSortedArrays2;
+    const SUT2 = findMedianSortedArrays_FASTEST;
 
     test('SUT2 should be faster than SUT1', () => {
         const arr1 = Array.from({ length: 1000 }, (_, i) => i);
