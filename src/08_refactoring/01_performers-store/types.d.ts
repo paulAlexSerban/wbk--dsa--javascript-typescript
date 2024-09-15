@@ -17,4 +17,8 @@ type Plays = Record<string, Play>;
 
 type Statement = (invoice: Invoice, plays: Plays) => string;
 
-export type { Performance, Invoice, Play, Plays, Statement };
+type PlayTypeMapper = {
+  [key: string]: (aPerformance: Performance) => number;
+};
+
+export type { Performance, Invoice, Play, Plays, Statement, PlayTypeMapper };

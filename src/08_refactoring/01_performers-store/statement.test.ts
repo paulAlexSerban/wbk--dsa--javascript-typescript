@@ -72,7 +72,7 @@ You earned 6 credits\n`;
       "unknown-play": { name: "Unknown Play", type: "mystery" },
     }; // Unrecognized play type
 
-    expect(() => statement(invoice, playsData)).toThrowError(
+    expect(() => statement(invoice, playsData)).toThrow(
       "unknown type: mystery"
     ); // Assert that it throws the correct error
   });
