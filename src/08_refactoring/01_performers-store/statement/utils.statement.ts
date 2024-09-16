@@ -43,4 +43,12 @@ const volumeCreditsFor = (aPerformance: Performance, plays: Plays): number => {
   return result;
 };
 
-export { amountFor, playFor, volumeCreditsFor };
+const usd = (aNumber: number): string => {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  }).format(aNumber / 100);
+}
+
+export { amountFor, playFor, volumeCreditsFor, usd };
