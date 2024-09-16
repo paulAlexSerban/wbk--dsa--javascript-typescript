@@ -17,8 +17,31 @@ type Plays = Record<string, Play>;
 
 type Statement = (invoice: Invoice, plays: Plays) => string;
 
+type EnrichedPerformance = Performance & {
+  play: Play;
+  amount: number;
+}
+
 type PlayTypeMapper = {
-  [key: string]: (aPerformance: Performance) => number;
+  [key: string]: (aPerformance: EnrichedPerformance) => number;
 };
 
-export type { Performance, Invoice, Play, Plays, Statement, PlayTypeMapper };
+
+
+type StatementData = {
+  customer: string;
+  performances: EnrichedPerformance[];
+};
+
+
+
+export type {
+  Performance,
+  Invoice,
+  Play,
+  Plays,
+  Statement,
+  PlayTypeMapper,
+  StatementData,
+  EnrichedPerformance
+};
