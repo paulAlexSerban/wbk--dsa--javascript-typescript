@@ -20,6 +20,7 @@ type Statement = (invoice: Invoice, plays: Plays) => string;
 type EnrichedPerformance = Performance & {
   play: Play;
   amount: number;
+  volumeCredits: number;
 }
 
 type PlayTypeMapper = {
@@ -31,6 +32,8 @@ type PlayTypeMapper = {
 type StatementData = {
   customer: string;
   performances: EnrichedPerformance[];
+  totalAmount: number;
+  totalVolumeCredits: number;
 };
 
 

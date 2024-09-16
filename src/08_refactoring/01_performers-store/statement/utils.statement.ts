@@ -61,7 +61,7 @@ const usd = (aNumber: number): string => {
 const totalVolumeCredits = (data: StatementData): number => {
   let result = 0;
   for (let perf of data.performances) {
-    result += volumeCreditsFor(perf);
+    result += perf.volumeCredits;
   }
   return result;
 };
@@ -69,7 +69,7 @@ const totalVolumeCredits = (data: StatementData): number => {
 const totalAmount = (data: StatementData): number => {
   let result = 0;
   for (let perf of data.performances) {
-    result += perf.amount
+    result += perf.amount;
   }
   return result;
 };
@@ -83,8 +83,8 @@ const renderPlainText = (data: StatementData): string => {
     } seats)\n`;
   }
 
-  result += `Amount owed is ${usd(totalAmount(data))}\n`;
-  result += `You earned ${totalVolumeCredits(data)} credits\n`;
+  result += `Amount owed is ${usd(data.totalAmount)}\n`;
+  result += `You earned ${data.totalVolumeCredits} credits\n`;
   return result;
 };
 
@@ -98,6 +98,8 @@ const enrichPerformance = (
   );
   result.play = playFor(aPerformance, plays);
   result.amount = amountFor(result);
+  result.volumeCredits = volumeCreditsFor(result);
+
   return result;
 };
 
