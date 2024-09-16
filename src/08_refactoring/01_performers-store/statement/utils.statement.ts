@@ -1,4 +1,4 @@
-import type { Performance, Plays, PlayTypeMapper, Play } from "../types";
+import type { Performance, Plays, PlayTypeMapper, Play, Invoice } from "../types";
 import playsJson from "../data/plays.json";
 
 const playFor = (aPerformance: Performance, plays: Plays = playsJson): Play => {
@@ -51,4 +51,34 @@ const usd = (aNumber: number): string => {
   }).format(aNumber / 100);
 }
 
-export { amountFor, playFor, volumeCreditsFor, usd };
+const totalVolumeCredits = (invoice: Invoice, plays: Plays): number => {
+  let result = 0;
+  for (let perf of invoice.performances) {
+    result += volumeCreditsFor(perf, plays);
+  }
+  return result;
+}
+
+const totalAmount = (invoice: Invoice, plays: Plays): number => {
+  let result = 0;
+  for (let perf of invoice.performances) {
+    result += amountFor(perf, plays);
+  }
+  return result;
+}
+
+const renderPlainText = (invoice: Invoice, plays: Plays): string => {
+  let result = `Statement for ${invoice.customer}\n`;
+  for (let perf of invoice.performances) {
+    // print line for this order
+    result += `  ${playFor(perf, plays).name}: ${usd(
+      amountFor(perf, plays)
+    )} (${perf.audience} seats)\n`;
+  }
+
+  result += `Amount owed is ${usd(totalAmount(invoice, plays))}\n`;
+  result += `You earned ${totalVolumeCredits(invoice, plays)} credits\n`;
+  return result;
+}
+
+export { amountFor, playFor, volumeCreditsFor, usd, totalVolumeCredits, totalAmount, renderPlainText };
