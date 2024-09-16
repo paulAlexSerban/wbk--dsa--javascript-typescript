@@ -5,6 +5,7 @@ import type {
   Play,
   StatementData,
   EnrichedPerformance,
+  Invoice
 } from "../types";
 import playsJson from "../data/plays.json";
 
@@ -59,19 +60,14 @@ const usd = (aNumber: number): string => {
 };
 
 const totalVolumeCredits = (data: StatementData): number => {
-  let result = 0;
-  for (let perf of data.performances) {
-    result += perf.volumeCredits;
-  }
-  return result;
+  return data.performances.reduce(
+    (total, perf) => total + perf.volumeCredits,
+    0
+  );
 };
 
 const totalAmount = (data: StatementData): number => {
-  let result = 0;
-  for (let perf of data.performances) {
-    result += perf.amount;
-  }
-  return result;
+  return data.performances.reduce((total, perf) => total + perf.amount, 0);
 };
 
 const renderPlainText = (data: StatementData): string => {
@@ -103,6 +99,17 @@ const enrichPerformance = (
   return result;
 };
 
+const createStatementData = (invoice: Invoice, plays: Plays): StatementData => {
+  const result: StatementData = {} as StatementData;
+  result.customer = invoice.customer;
+  result.performances = invoice.performances.map((performance) =>
+    enrichPerformance(performance, plays)
+  );
+  result.totalAmount = totalAmount(result);
+  result.totalVolumeCredits = totalVolumeCredits(result);
+  return result;
+};
+
 export {
   amountFor,
   playFor,
@@ -112,4 +119,5 @@ export {
   totalAmount,
   renderPlainText,
   enrichPerformance,
+  createStatementData
 };
