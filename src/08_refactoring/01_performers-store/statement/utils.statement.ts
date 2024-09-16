@@ -1,5 +1,9 @@
-import type { Performance, Plays, PlayTypeMapper } from "../types";
-import playFor from "./_playFor";
+import type { Performance, Plays, PlayTypeMapper, Play } from "../types";
+import playsJson from "../data/plays.json";
+
+const playFor = (aPerformance: Performance, plays: Plays = playsJson): Play => {
+  return plays[aPerformance.playID];
+};
 
 const playTypeMapper: PlayTypeMapper = {
   tragedy: (aPerformance: Performance) => {
@@ -19,7 +23,7 @@ const playTypeMapper: PlayTypeMapper = {
   },
 };
 
-function amountFor(aPerformance: Performance, plays: Plays): number {
+const amountFor = (aPerformance: Performance, plays: Plays): number => {
   let result = 0;
 
   if (playFor(aPerformance) === undefined) {
@@ -28,6 +32,15 @@ function amountFor(aPerformance: Performance, plays: Plays): number {
     result = playTypeMapper[playFor(aPerformance, plays).type](aPerformance);
   }
   return result;
-}
+};
 
-export default amountFor;
+const volumeCreditsFor = (aPerformance: Performance, plays: Plays): number => {
+  let result = 0;
+  result += Math.max(aPerformance.audience - 30, 0);
+  if ("comedy" === playFor(aPerformance, plays).type) {
+    result += Math.floor(aPerformance.audience / 5);
+  }
+  return result;
+};
+
+export { amountFor, playFor, volumeCreditsFor };

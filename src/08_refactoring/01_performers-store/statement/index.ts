@@ -1,6 +1,5 @@
 import type { Invoice, Plays } from "../types";
-import amountFor from "./_amountFor";
-import playFor from "./_playFor";
+import { amountFor, playFor, volumeCreditsFor } from "./utils.statement";
 
 const statement = (invoice: Invoice, plays: Plays): string => {
   let totalAmount = 0;
@@ -15,11 +14,7 @@ const statement = (invoice: Invoice, plays: Plays): string => {
 
   for (let perf of invoice.performances) {
     // add volume credits
-    volumeCredits += Math.max(perf.audience - 30, 0);
-    // add extra credit for every ten comedy attendees
-    if ("comedy" === playFor(perf, plays).type) {
-      volumeCredits += Math.floor(perf.audience / 5);
-    }
+    volumeCredits += volumeCreditsFor(perf, plays);
 
     // print line for this order
     results += `  ${playFor(perf, plays).name}: ${format(
