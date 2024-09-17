@@ -1,6 +1,6 @@
 import plays from "./data/plays.json";
 import invoices from "./data/invoices.json";
-import statement from "./statement";
+import { statement, htmlStatement } from "./statement";
 
 describe("statement", () => {
   it("should print statement for BigCo with multiple performances", () => {
@@ -121,6 +121,26 @@ You earned 18 credits\n`;
   As You Like It: $500.00 (25 seats)
 Amount owed is $500.00
 You earned 5 credits\n`;
+
+    expect(actual).toBe(expected); // Assert expected output
+  });
+});
+
+describe("htmlStatement", () => {
+  it("should print statement for BigCo with multiple performances", () => {
+    const invoice = invoices[0]; // First invoice from the mock data
+    const playsData = plays; // Use mock plays data
+
+    const actual = htmlStatement(invoice, playsData); // Call the function
+    const expected = `<h1>Statement for BigCo</h1>
+<table>
+<tr><th>play</th><th>seats</th><th>cost</th></tr>
+  <tr><td>Hamlet</td><td>55</td><td>$650.00</td></tr>
+  <tr><td>As You Like It</td><td>35</td><td>$580.00</td></tr>
+  <tr><td>Othello</td><td>40</td><td>$500.00</td></tr>
+</table>
+<p>Amount owed is <em>$1,730.00</em></p>
+<p>You earned <em>47</em> credits</p>\n`;
 
     expect(actual).toBe(expected); // Assert expected output
   });

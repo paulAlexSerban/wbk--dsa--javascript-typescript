@@ -51,13 +51,7 @@ const volumeCreditsFor = (aPerformance: EnrichedPerformance): number => {
   return result;
 };
 
-const usd = (aNumber: number): string => {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 2,
-  }).format(aNumber / 100);
-};
+
 
 const totalVolumeCredits = (data: StatementData): number => {
   return data.performances.reduce(
@@ -70,19 +64,7 @@ const totalAmount = (data: StatementData): number => {
   return data.performances.reduce((total, perf) => total + perf.amount, 0);
 };
 
-const renderPlainText = (data: StatementData): string => {
-  let result = `Statement for ${data.customer}\n`;
-  for (let perf of data.performances) {
-    // print line for this order
-    result += `  ${perf.play.name}: ${usd(perf.amount)} (${
-      perf.audience
-    } seats)\n`;
-  }
 
-  result += `Amount owed is ${usd(data.totalAmount)}\n`;
-  result += `You earned ${data.totalVolumeCredits} credits\n`;
-  return result;
-};
 
 const enrichPerformance = (
   aPerformance: Performance,
@@ -114,10 +96,8 @@ export {
   amountFor,
   playFor,
   volumeCreditsFor,
-  usd,
   totalVolumeCredits,
   totalAmount,
-  renderPlainText,
   enrichPerformance,
   createStatementData
 };

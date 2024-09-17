@@ -14,3 +14,6 @@
 
 ### Note 5:
 > Any fool can write code that a computer can understand. Good programmers write code that humans can understand.
+
+### Note 6:
+> When programming, follow the camping rule: Always leave the code cleaner than you found it.
