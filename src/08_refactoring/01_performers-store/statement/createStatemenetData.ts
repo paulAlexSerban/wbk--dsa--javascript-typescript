@@ -5,8 +5,9 @@ import type {
   Play,
   StatementData,
   EnrichedPerformance,
-  Invoice
+  Invoice,
 } from "../types";
+
 import playsJson from "../data/plays.json";
 
 const playFor = (aPerformance: Performance, plays: Plays = playsJson): Play => {
@@ -16,42 +17,56 @@ const playFor = (aPerformance: Performance, plays: Plays = playsJson): Play => {
 const playTypeMapper: PlayTypeMapper = {
   tragedy: (aPerformance: EnrichedPerformance) => {
     let result = 40000;
-    if (aPerformance.audience > 30) {
-      result += 1000 * (aPerformance.audience - 30);
+    const performanceAudience = aPerformance.audience;
+    const isAudienceGreaterThan30 = performanceAudience > 30;
+
+    if (isAudienceGreaterThan30) {
+      result += 1000 * (performanceAudience - 30);
     }
+
     return result;
   },
   comedy: (aPerformance: EnrichedPerformance) => {
     let result = 30000;
-    if (aPerformance.audience > 20) {
-      result += 10000 + 500 * (aPerformance.audience - 20);
+    const performanceAudience = aPerformance.audience;
+    const isAudienceGreaterThan20 = performanceAudience > 20;
+
+    if (isAudienceGreaterThan20) {
+      result += 10000 + 500 * (performanceAudience - 20);
     }
-    result += 300 * aPerformance.audience;
+
+    result += 300 * performanceAudience;
+  
     return result;
   },
 };
 
 const amountFor = (aPerformance: EnrichedPerformance): number => {
   let result = 0;
+  const playType = aPerformance.play.type;
 
   if (playFor(aPerformance) === undefined) {
-    throw new Error(`unknown type: ${aPerformance.play.type}`);
+    throw new Error(`unknown type: ${playType}`);
   } else {
-    result = playTypeMapper[aPerformance.play.type](aPerformance);
+    result = playTypeMapper[playType](aPerformance);
   }
+
   return result;
 };
 
 const volumeCreditsFor = (aPerformance: EnrichedPerformance): number => {
   let result = 0;
-  result += Math.max(aPerformance.audience - 30, 0);
-  if ("comedy" === aPerformance.play.type) {
-    result += Math.floor(aPerformance.audience / 5);
+  const playType = aPerformance.play.type;
+  const performanceAudience = aPerformance.audience;
+
+  result += Math.max(performanceAudience - 30, 0);
+
+  if ("comedy" === playType) {
+    result += Math.floor(performanceAudience / 5);
   }
+
   return result;
 };
-
-
 
 const totalVolumeCredits = (data: StatementData): number => {
   return data.performances.reduce(
@@ -63,8 +78,6 @@ const totalVolumeCredits = (data: StatementData): number => {
 const totalAmount = (data: StatementData): number => {
   return data.performances.reduce((total, perf) => total + perf.amount, 0);
 };
-
-
 
 const enrichPerformance = (
   aPerformance: Performance,
@@ -99,5 +112,5 @@ export {
   totalVolumeCredits,
   totalAmount,
   enrichPerformance,
-  createStatementData
+  createStatementData,
 };
