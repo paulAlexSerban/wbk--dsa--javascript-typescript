@@ -124,6 +124,22 @@ You earned 5 credits\n`;
 
     expect(actual).toBe(expected); // Assert expected output
   });
+
+  it("should handle a performance with exactly 20 audience members for a comedy", () => {
+    const invoice = {
+      customer: "BigCo",
+      performances: [{ playID: "as-like", audience: 20 }],
+    }; // Exactly 20 audience members for a comedy
+    const playsData = plays; // Use mock plays data
+
+    const actual = statement(invoice, playsData); // Call the function
+    const expected = `Statement for BigCo
+  As You Like It: $360.00 (20 seats)
+Amount owed is $360.00
+You earned 4 credits\n`;
+
+    expect(actual).toBe(expected); // Assert expected output
+  });
 });
 
 describe("htmlStatement", () => {
