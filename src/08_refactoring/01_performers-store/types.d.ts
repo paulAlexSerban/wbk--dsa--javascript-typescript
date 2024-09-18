@@ -21,13 +21,11 @@ type EnrichedPerformance = Performance & {
   play: Play;
   amount: number;
   volumeCredits: number;
-}
+};
 
 type PlayTypeMapper = {
   [key: string]: (aPerformance: EnrichedPerformance) => number;
 };
-
-
 
 type StatementData = {
   customer: string;
@@ -36,7 +34,12 @@ type StatementData = {
   totalVolumeCredits: number;
 };
 
-
+type PerformanceCalculatorType = {
+  play: Play;
+  performance: EnrichedPerformance;
+  amount: number;
+  volumeCredits: number;
+};
 
 export type {
   Performance,
@@ -46,5 +49,6 @@ export type {
   Statement,
   PlayTypeMapper,
   StatementData,
-  EnrichedPerformance
+  EnrichedPerformance,
+  PerformanceCalculatorType,
 };

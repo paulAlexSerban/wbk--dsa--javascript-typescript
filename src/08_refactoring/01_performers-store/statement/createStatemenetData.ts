@@ -5,6 +5,7 @@ import type {
   StatementData,
   EnrichedPerformance,
   Invoice,
+  PerformanceCalculatorType,
 } from "../types";
 
 import PerformanceCalculator from "./PerformanceCalculator";
@@ -33,11 +34,18 @@ const totalAmount = (data: StatementData): number => {
   return data.performances.reduce((total, perf) => total + perf.amount, 0);
 };
 
+const createPerformanceCalculator = (
+  aPerformance: EnrichedPerformance,
+  aPlay: Play
+): PerformanceCalculatorType => {
+  return new PerformanceCalculator(aPerformance, aPlay);
+};
+
 const enrichPerformance = (
   aPerformance: EnrichedPerformance,
   plays: Plays
 ): EnrichedPerformance => {
-  const calculator = new PerformanceCalculator(
+  const calculator = createPerformanceCalculator(
     aPerformance,
     playFor(aPerformance, plays)
   );

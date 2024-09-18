@@ -1,7 +1,37 @@
-import { EnrichedPerformance, Play, PlayTypeMapper } from "../types";
+import {
+  EnrichedPerformance,
+  Play,
+  PlayTypeMapper,
+  PerformanceCalculatorType,
+} from "../types";
 import { playFor } from "./createStatemenetData";
 
-class PerformanceCalculator {
+const playTypeMapper: PlayTypeMapper = {
+  tragedy: (aPerformance: EnrichedPerformance) => {
+    let result = 40000;
+    const performanceAudience = aPerformance.audience;
+
+    if (performanceAudience > 30) {
+      result += 1000 * (performanceAudience - 30);
+    }
+
+    return result;
+  },
+  comedy: (aPerformance: EnrichedPerformance) => {
+    let result = 30000;
+    const performanceAudience = aPerformance.audience;
+
+    if (performanceAudience > 20) {
+      result += 10000 + 500 * (performanceAudience - 20);
+    }
+
+    result += 300 * performanceAudience;
+
+    return result;
+  },
+};
+
+class PerformanceCalculator implements PerformanceCalculatorType {
   performance: EnrichedPerformance;
   play: Play;
 
@@ -10,38 +40,13 @@ class PerformanceCalculator {
     this.play = aPlay;
   }
 
-  playTypeMapper: PlayTypeMapper = {
-    tragedy: (aPerformance: EnrichedPerformance) => {
-      let result = 40000;
-      const performanceAudience = aPerformance.audience;
-
-      if (performanceAudience > 30) {
-        result += 1000 * (performanceAudience - 30);
-      }
-
-      return result;
-    },
-    comedy: (aPerformance: EnrichedPerformance) => {
-      let result = 30000;
-      const performanceAudience = aPerformance.audience;
-
-      if (performanceAudience > 20) {
-        result += 10000 + 500 * (performanceAudience - 20);
-      }
-
-      result += 300 * performanceAudience;
-
-      return result;
-    },
-  };
-
   get amount(): number {
     let result = 0;
 
     if (playFor(this.performance) === undefined) {
       throw new Error(`unknown type: ${this.play.type}`);
     } else {
-      result = this.playTypeMapper[this.play.type](this.performance);
+      result = playTypeMapper[this.play.type](this.performance);
     }
 
     return result;
