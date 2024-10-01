@@ -1,37 +1,6 @@
-import {
-  EnrichedPerformance,
-  Play,
-  PlayTypeMapper,
-  PerformanceCalculatorType,
-} from "../types";
-import { playFor } from "./createStatemenetData";
+import { EnrichedPerformance, Play, PerformanceCalculatorType } from "../types";
 
-const playTypeMapper: PlayTypeMapper = {
-  tragedy: (aPerformance: EnrichedPerformance) => {
-    let result = 40000;
-    const performanceAudience = aPerformance.audience;
-
-    if (performanceAudience > 30) {
-      result += 1000 * (performanceAudience - 30);
-    }
-
-    return result;
-  },
-  comedy: (aPerformance: EnrichedPerformance) => {
-    let result = 30000;
-    const performanceAudience = aPerformance.audience;
-
-    if (performanceAudience > 20) {
-      result += 10000 + 500 * (performanceAudience - 20);
-    }
-
-    result += 300 * performanceAudience;
-
-    return result;
-  },
-};
-
-class PerformanceCalculator implements PerformanceCalculatorType {
+export class PerformanceCalculator implements PerformanceCalculatorType {
   performance: EnrichedPerformance;
   play: Play;
 
@@ -41,29 +10,42 @@ class PerformanceCalculator implements PerformanceCalculatorType {
   }
 
   get amount(): number {
-    let result = 0;
-
-    if (playFor(this.performance) === undefined) {
-      throw new Error(`unknown type: ${this.play.type}`);
-    } else {
-      result = playTypeMapper[this.play.type](this.performance);
-    }
-
-    return result;
+    throw new Error("subclass responsibility");
   }
 
   get volumeCredits(): number {
-    let result = 0;
+    return Math.max(this.performance.audience - 30, 0);
+  }
+}
+
+export class TragedyCalculator extends PerformanceCalculator {
+  get amount(): number {
+    let result = 40000;
     const performanceAudience = this.performance.audience;
 
-    result += Math.max(performanceAudience - 30, 0);
-
-    if ("comedy" === this.play.type) {
-      result += Math.floor(performanceAudience / 5);
+    if (performanceAudience > 30) {
+      result += 1000 * (performanceAudience - 30);
     }
 
     return result;
   }
 }
 
-export default PerformanceCalculator;
+export class ComedyCalculator extends PerformanceCalculator {
+  get amount(): number {
+    let result = 30000;
+    const performanceAudience = this.performance.audience;
+
+    if (performanceAudience > 20) {
+      result += 10000 + 500 * (performanceAudience - 20);
+    }
+
+    result += 300 * performanceAudience;
+
+    return result;
+  }
+
+  get volumeCredits(): number {
+    return super.volumeCredits + Math.floor(this.performance.audience / 5);
+  }
+}

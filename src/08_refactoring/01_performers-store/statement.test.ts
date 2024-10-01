@@ -1,6 +1,8 @@
+import { PerformanceCalculator } from "./statement/PerformanceCalculator";
 import plays from "./data/plays.json";
 import invoices from "./data/invoices.json";
 import { statement, htmlStatement } from "./statement";
+import { EnrichedPerformance } from "./types";
 
 describe("statement", () => {
   it("should print statement for BigCo with multiple performances", () => {
@@ -159,5 +161,16 @@ describe("htmlStatement", () => {
 <p>You earned <em>47</em> credits</p>\n`;
 
     expect(actual).toBe(expected); // Assert expected output
+  });
+});
+
+describe("PerformanceCalculator", () => {
+  it("should throw an error when calling amount on the base class", () => {
+    const performance = { playID: "hamlet", audience: 30 };
+    const play = { name: "Hamlet", type: "tragedy" };
+
+    const calculator = new PerformanceCalculator(performance as EnrichedPerformance, play);
+
+    expect(() => calculator.amount).toThrow("subclass responsibility");
   });
 });

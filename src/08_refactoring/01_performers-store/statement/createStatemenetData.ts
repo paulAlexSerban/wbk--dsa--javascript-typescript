@@ -1,44 +1,31 @@
 import type {
-  Performance,
   Plays,
   Play,
   StatementData,
   EnrichedPerformance,
   Invoice,
   PerformanceCalculatorType,
+  PlayTypeMapper,
 } from "../types";
+import { TragedyCalculator, ComedyCalculator } from "./PerformanceCalculator";
+import { playFor, totalVolumeCredits, totalAmount } from "./utils/index";
 
-import PerformanceCalculator from "./PerformanceCalculator";
-
-import playsJson from "../data/plays.json";
-
-const playFor = (aPerformance: Performance, plays: Plays = playsJson): Play => {
-  return plays[aPerformance.playID];
-};
-
-// const amountFor = (aPerformance: EnrichedPerformance): number => {
-//   return new PerformanceCalculator(
-//     aPerformance,
-//     playFor(aPerformance, playsJson)
-//   ).amount;
-// };
-
-const totalVolumeCredits = (data: StatementData): number => {
-  return data.performances.reduce(
-    (total, perf) => total + perf.volumeCredits,
-    0
-  );
-};
-
-const totalAmount = (data: StatementData): number => {
-  return data.performances.reduce((total, perf) => total + perf.amount, 0);
+const playTypeMapper: PlayTypeMapper = {
+  tragedy: (aPerformance: EnrichedPerformance, aPlay: Play) =>
+    new TragedyCalculator(aPerformance, aPlay),
+  comedy: (aPerformance: EnrichedPerformance, aPlay: Play) =>
+    new ComedyCalculator(aPerformance, aPlay),
 };
 
 const createPerformanceCalculator = (
   aPerformance: EnrichedPerformance,
   aPlay: Play
 ): PerformanceCalculatorType => {
-  return new PerformanceCalculator(aPerformance, aPlay);
+  if (playTypeMapper[aPlay.type] === undefined) {
+    throw new Error(`unknown type: ${aPlay.type}`);
+  } else {
+    return playTypeMapper[aPlay.type](aPerformance, aPlay);
+  }
 };
 
 const enrichPerformance = (
@@ -72,11 +59,4 @@ const createStatementData = (invoice: Invoice, plays: Plays): StatementData => {
   return result;
 };
 
-export {
-  // amountFor,
-  playFor,
-  totalVolumeCredits,
-  totalAmount,
-  enrichPerformance,
-  createStatementData,
-};
+export default createStatementData;
