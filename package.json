@@ -5,7 +5,10 @@
     "build": "export ENV=production && yarn tsc",
     "watch": "concurrently -k -p name -n typescript,watch -c blue,green \"yarn tsc --watch\" \"yarn test:watch\"",
     "test:watch": "yarn test --watch",
-    "test": "yarn jest"
+    "test": "concurrently -k -p name -n test:1,test:2,test:3 -c blue,green,red \"yarn test:1\" \"yarn test:2\" \"yarn test:3\"",
+    "test:1": "yarn jest --shard=1/5",
+    "test:2": "yarn jest --shard=2/5",
+    "test:3": "yarn jest --shard=3/5"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.9",
