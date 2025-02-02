@@ -7,7 +7,7 @@
 -   use a small number of concrete "main" components, where all DIP violations are gathered
 -   high-level modules should not depend on ,low level module, but should depend on abstractions
 
-## IoC adn DI
+## IoC and DI
 
 -   While not explicitly named in the GoF design patterns, IoC and DI align with the principles of good design the GoF patterns aim to achieve, such as promoting loose coupling and enhancing modularity.
 -   These concepts are more closely related to architectural patterns and principles that guide the overall structure and organization of software systems, rather than the specific design patterns that address more localized problems in software design.
