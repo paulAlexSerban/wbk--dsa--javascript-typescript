@@ -1,6 +1,6 @@
-import { GameLoader, NextGenGameLoader, PlaystationGame } from './dependency-injection';
+import { GameLoader, NextGenGameLoader, PlaystationGame } from './02-dependency-injection__constructor-injection';
 
-describe('Dependency Injection', () => {
+describe('Dependency Injection w. Constructor Injection', () => {
     it('should load the game', () => {
         const gameLoader = new GameLoader('FIFA 2022');
         const playstationGame = new PlaystationGame(gameLoader);

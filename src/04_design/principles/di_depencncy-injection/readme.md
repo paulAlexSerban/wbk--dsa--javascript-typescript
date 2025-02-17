@@ -192,4 +192,10 @@ While DI itself is not a design pattern, it is often used alongside certain desi
 ✅ **It is not a Gang of Four (GoF) design pattern** but supports various design patterns.  
 ✅ **It enables IoC**, making applications more modular and testable.  
 
-Would you like a comparison with Service Locator or another approach? 🚀
+## Resources
+- [wikipedia - dependency injection](https://en.wikipedia.org/wiki/Dependency_injection)
+- [dependency injection with examples](https://stackify.com/dependency-injection/)
+- [understanding dependency injections](https://medium.com/@sardar.khan299/understanding-dependency-injection-a-powerful-design-pattern-for-flexible-and-testable-code-5e1161dd37dd)
+- [stackoverflow - dependency injection](https://stackoverflow.com/questions/66915874/is-dependency-injection-a-design-pattern)
+- [about design patterns - dependency injections](https://aveuiller.github.io/about_design_patterns-dependency_injection.html)
+- [redit - what design pattern could we use fo dependency injection](https://www.reddit.com/r/dotnet/comments/1bb3fa5/what_design_pattern_could_we_use_for_creating/?rdt=34971)
