@@ -1,0 +1,13 @@
+SOLID is an acronym for a set of five design principles that help improve the maintainability, readability, and reusability of software. These principles provide guidelines for designing flexible and scalable software architectures, and they encourage the use of best practices in object-oriented programming. SOLID stands for:
+
+1. **S**ingle Responsibility Principle (SRP): This principle states that a class should have only one reason to change, meaning it should have only one responsibility or job. By ensuring that a class focuses on a single task, the code becomes more maintainable and easier to understand. If a class has multiple responsibilities, it should be split into separate classes, each handling a specific task.
+
+2. **O**pen/Closed Principle (OCP): According to this principle, software entities (classes, modules, functions, etc.) should be open for extension but closed for modification. In other words, you should be able to add new functionality to a class without changing its existing code. This can be achieved by using inheritance, interfaces, or abstract classes to create new behavior without modifying the original class.
+
+3. **L**iskov Substitution Principle (LSP): This principle states that objects of a derived class should be able to replace objects of the base class without affecting the correctness of the program. LSP ensures that a subclass can be substituted for its superclass without altering the desirable properties of the program. It enforces the proper use of inheritance and promotes code reusability.
+
+4. **I**nterface Segregation Principle (ISP): This principle states that clients should not be forced to depend on interfaces they do not use. It encourages creating small, focused interfaces rather than large, monolithic ones. By breaking down interfaces into smaller, more specific ones, you can ensure that clients only need to implement or depend on the methods they actually use, making the code more modular and easier to maintain.
+
+5. **D**ependency Inversion Principle (DIP): This principle states that high-level modules should not depend on low-level modules, but both should depend on abstractions. It also states that abstractions should not depend on details, but details should depend on abstractions. By using dependency inversion, you can decouple the high-level and low-level modules, making the code more flexible and easier to refactor.
+
+By following the SOLID design principles, developers can create software that is easier to maintain, understand, and extend, reducing the overall complexity and cost of development. These principles are not strict rules, but they provide valuable guidance for creating high-quality software architectures.
