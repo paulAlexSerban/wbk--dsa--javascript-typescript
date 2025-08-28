@@ -1,4 +1,5 @@
 # Stacks
+
 -   it is a collection of data and it needs to use the LIFO principle
 -   LIFO (last in first out) - the last element added to the stack will be the first element removed from the stack
 -   stacks are a LIFO data structure where the last value is always the first one out

@@ -3,7 +3,7 @@ import {
   IStore,
   Dispatch,
   Subscribe,
-} from "./01_basic-redux-like-store";
+} from "./01_basic-redux-like-store.d";
 
 // Adjust the createStore function to use TypeScript
 export const createStore = <State>(reducer: Reducer<State>): IStore<State> => {
