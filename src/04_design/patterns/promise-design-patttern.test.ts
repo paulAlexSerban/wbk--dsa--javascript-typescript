@@ -1,5 +1,5 @@
 // Import the functions to test
-import { fetchTodoDataPromise, fetchUserTodoDataAsync } from './03_promise-design-pattern'; // Update this path
+import { fetchTodoDataPromise, fetchUserTodoDataAsync } from './promise-design-pattern'; // Update this path
 import fetchMock from 'jest-fetch-mock';
 describe('fetchTodoDataPromise', () => {
     beforeEach(() => {
